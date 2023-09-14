@@ -73,7 +73,7 @@ public class Animal {
     }
 
     private void toSwim() {
-        System.out.println(this.TYPE + "Плывёт");
+        System.out.println(this.TYPE + "Плывёт!");
     }
 
     // getters
