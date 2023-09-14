@@ -11,4 +11,9 @@ public class Dolphin extends Animal{
     public Dolphin(String name) {
         super(name);
     }
+
+    @Override
+    protected void toGo() {
+        System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Не бегает!");
+    }
 }

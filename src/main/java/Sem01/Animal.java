@@ -61,19 +61,21 @@ public class Animal {
         System.out.println(this.TYPE + "Издаёт звук");
     }
 
-    private void toGo() {
-        System.out.println(this.TYPE + "Бежит");
+    protected void toGo() {
+        System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Бегает!");
     }
 
     protected void toFly() {
-        if (this instanceof Cat || this instanceof Dog) {
-            System.out.println(this.TYPE + " летает.");
-        } else {System.out.println(this.TYPE + " не летает.");}
+        if (this instanceof Eagle) {
+            System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Летает!");
+        } else {
+            System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Не летает!");
+        }
 
     }
 
-    private void toSwim() {
-        System.out.println(this.TYPE + "Плывёт!");
+    protected void toSwim() {
+        System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Плавает!");
     }
 
     // getters

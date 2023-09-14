@@ -11,4 +11,8 @@ public class Caterpillar extends Animal{
     public Caterpillar(String name) {
         super(name);
     }
+    @Override
+    protected void toSwim() {
+        System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Не плавает!");
+    }
 }

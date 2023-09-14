@@ -18,9 +18,34 @@ public class Main {
         Eagle hercules = new Eagle("hercules");
         Ostrich nick = new Ostrich("nick");
 
-        nick.toFly();
+        System.out.println("---------");
         barsik.toFly();
-
+        barsik.toSwim();
+        barsik.toGo();
+        System.out.println("---------");
+        barbos.toFly();
+        barbos.toSwim();
+        barbos.toGo();
+        System.out.println("---------");
+        joe.toFly();
+        joe.toSwim();
+        joe.toGo();
+        System.out.println("---------");
+        gena.toFly();
+        gena.toSwim();
+        gena.toGo();
+        System.out.println("---------");
+        flipper.toFly();
+        flipper.toSwim();
+        flipper.toGo();
+        System.out.println("---------");
+        hercules.toFly();
+        hercules.toSwim();
+        hercules.toGo();
+        System.out.println("---------");
+        nick.toFly();
+        nick.toSwim();
+        nick.toGo();
 
 
 //        System.out.println(barsik.getName());

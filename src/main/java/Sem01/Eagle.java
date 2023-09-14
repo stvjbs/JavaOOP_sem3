@@ -11,4 +11,8 @@ public class Eagle extends Animal {
     public Eagle(String name) {
         super(name);
     }
+    @Override
+    protected void toSwim() {
+        System.out.printf("%s по кличке %s %s%n", this.TYPE, this.getName(), "Не плавает!");
+    }
 }
