@@ -1,4 +1,4 @@
-package Sem01;
+package sem01;
 
 import java.time.LocalDate;
 
