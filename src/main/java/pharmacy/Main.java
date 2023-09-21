@@ -1,12 +1,9 @@
 package pharmacy;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
-
-
-
-
     public static void main(String[] args) {
         Pharmacy catPharmacy = new CatPharmacy();
         Pharmacy catPharmacy1 = new CatPharmacy();
@@ -33,8 +30,6 @@ public class Main {
         catPharmacy5.addComponent(new Azitronitum("4 мг"))
                 .addComponent(new Penicilium("3 мг"));
 
-        System.out.println(catPharmacy.equals(catPharmacy1));
-
 
         List<Pharmacy> pharmacyList = new ArrayList<>();
         pharmacyList.add(catPharmacy);
@@ -44,9 +39,12 @@ public class Main {
         pharmacyList.add(catPharmacy4);
         pharmacyList.add(catPharmacy5);
 
-        Set<Pharmacy> result = new HashSet(pharmacyList);
+        Set<Pharmacy> result = new HashSet<Pharmacy>(pharmacyList);
 
-
+        for (Pharmacy p: result
+             ) {
+            System.out.println(p);
+        }
 
         //        System.out.println(pharmacyList);
 

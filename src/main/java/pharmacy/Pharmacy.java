@@ -5,11 +5,10 @@ import java.util.*;
 public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy> {
     private List<Component> components;
 
-    private int index;
 
     public Pharmacy() {
         this.components = new ArrayList<>();
-        this.index = 0;
+
     }
 
     public Pharmacy addComponent(Component component) {
@@ -41,9 +40,18 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy> {
     public String toString() {
         return "Pharmacy{" +
                 "components=" + components +
-                ", index=" + index +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+        List<Component> components = Collections.singletonList((Component) o);
+        if (components.equals(this.components)) return true;
+        return false;
+    }
+
+
 
     @Override
     public Iterator<Component> iterator() {
