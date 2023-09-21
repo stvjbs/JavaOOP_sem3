@@ -5,16 +5,20 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        Pharmacy catPharmacy = new CatPharmacy();
-        Pharmacy catPharmacy1 = new CatPharmacy();
-        Pharmacy catPharmacy2 = new CatPharmacy();
-        Pharmacy catPharmacy3 = new CatPharmacy();
-        Pharmacy catPharmacy4 = new CatPharmacy();
-        Pharmacy catPharmacy5 = new CatPharmacy();
-
+//        Pharmacy catPharmacy = new CatPharmacy();
+//        Pharmacy catPharmacy1 = new CatPharmacy();
+//        Pharmacy catPharmacy2 = new CatPharmacy();
+//        Pharmacy catPharmacy3 = new CatPharmacy();
+//        Pharmacy catPharmacy4 = new CatPharmacy();
+//        Pharmacy catPharmacy5 = new CatPharmacy();
+        Pharmacy catPharmacy = new Pharmacy();
+        Pharmacy catPharmacy1 = new Pharmacy();
+        Pharmacy catPharmacy2 = new Pharmacy();
+        Pharmacy catPharmacy3 = new Pharmacy();
+        Pharmacy catPharmacy4 = new Pharmacy();
+        Pharmacy catPharmacy5 = new Pharmacy();
         catPharmacy.addComponent(new Azitronitum("12 мг"))
                 .addComponent(new Water("10 мл")).addComponent(new Penicilium("1 мг"));
-
         catPharmacy1.addComponent(new Azitronitum("12 мг"))
                 .addComponent(new Water("10 мл")).addComponent(new Penicilium("1 мг"));
 
@@ -38,13 +42,10 @@ public class Main {
         pharmacyList.add(catPharmacy3);
         pharmacyList.add(catPharmacy4);
         pharmacyList.add(catPharmacy5);
+        System.out.println(pharmacyList.size());
 
         Set<Pharmacy> result = new HashSet<Pharmacy>(pharmacyList);
-
-        for (Pharmacy p: result
-             ) {
-            System.out.println(p);
-        }
+        System.out.println(result.size());
 
         //        System.out.println(pharmacyList);
 
@@ -55,13 +56,14 @@ public class Main {
 //        System.out.println("-------------------");
 //        for (Pharmacy p : pharmacyList) {
 //            System.out.println(p.getFullPower());
+//            System.out.println(p);
 //        }
-//
-////        while (((Iterator<Component>) catPharmacy).hasNext()) {
-////            System.out.println(((Iterator<Component>) catPharmacy).next());
-////        }
-//        for (Component component : catPharmacy) {
-//            System.out.println(component);
+
+//        while (((Iterator<Component>) catPharmacy).hasNext()) {
+//            System.out.println(((Iterator<Component>) catPharmacy).next());
 //        }
+        for (Component c : catPharmacy1) {
+            System.out.println();
+        }
     }
 }
