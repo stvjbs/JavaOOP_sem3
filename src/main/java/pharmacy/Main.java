@@ -1,48 +1,69 @@
 package pharmacy;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
+
+
+
+
     public static void main(String[] args) {
         Pharmacy catPharmacy = new CatPharmacy();
-        Component pen = new Penicilium("5 мг");
-        pen.setWeight("7 мг");
-        catPharmacy.addComponent(new Azitronitum("12 мг"))
-                .addComponent(new Water("10 мл"))
-                .addComponent(pen);
         Pharmacy catPharmacy1 = new CatPharmacy();
-
-        catPharmacy1.addComponent(new Azitronitum("15 мг"))
-                .addComponent(pen);
-
         Pharmacy catPharmacy2 = new CatPharmacy();
+        Pharmacy catPharmacy3 = new CatPharmacy();
+        Pharmacy catPharmacy4 = new CatPharmacy();
+        Pharmacy catPharmacy5 = new CatPharmacy();
 
-        catPharmacy2.addComponent(new Azitronitum("15 мг"))
-                .addComponent(new Water("12 мл"));
+        catPharmacy.addComponent(new Azitronitum("12 мг"))
+                .addComponent(new Water("10 мл")).addComponent(new Penicilium("1 мг"));
+
+        catPharmacy1.addComponent(new Azitronitum("12 мг"))
+                .addComponent(new Water("10 мл")).addComponent(new Penicilium("1 мг"));
+
+        catPharmacy2.addComponent(new Water("2 мл"))
+                .addComponent(new Penicilium("3 мг"));
+
+        catPharmacy3.addComponent(new Azitronitum("4 мг"))
+                .addComponent(new Water("2 мл"));
+
+        catPharmacy4.addComponent(new Azitronitum("1 мг"))
+                .addComponent(new Water("4 мл")).addComponent(new Penicilium("12 мг"));
+
+        catPharmacy5.addComponent(new Azitronitum("4 мг"))
+                .addComponent(new Penicilium("3 мг"));
+
+        System.out.println(catPharmacy.equals(catPharmacy1));
+
 
         List<Pharmacy> pharmacyList = new ArrayList<>();
-        pharmacyList.add(catPharmacy2);
         pharmacyList.add(catPharmacy);
         pharmacyList.add(catPharmacy1);
-//        System.out.println(pharmacyList);
+        pharmacyList.add(catPharmacy2);
+        pharmacyList.add(catPharmacy3);
+        pharmacyList.add(catPharmacy4);
+        pharmacyList.add(catPharmacy5);
 
-        for (Pharmacy p : pharmacyList) {
-            System.out.println(p.getFullPower());
-        }
-        Collections.sort(pharmacyList);
-        System.out.println("-------------------");
-        for (Pharmacy p : pharmacyList) {
-            System.out.println(p.getFullPower());
-        }
+        Set<Pharmacy> result = new HashSet(pharmacyList);
 
-//        while (((Iterator<Component>) catPharmacy).hasNext()) {
-//            System.out.println(((Iterator<Component>) catPharmacy).next());
+
+
+        //        System.out.println(pharmacyList);
+
+//        for (Pharmacy p : pharmacyList) {
+//            System.out.println(p.getFullPower());
 //        }
-        for (Component component : catPharmacy) {
-            System.out.println(component);
-        }
+//        Collections.sort(pharmacyList);
+//        System.out.println("-------------------");
+//        for (Pharmacy p : pharmacyList) {
+//            System.out.println(p.getFullPower());
+//        }
+//
+////        while (((Iterator<Component>) catPharmacy).hasNext()) {
+////            System.out.println(((Iterator<Component>) catPharmacy).next());
+////        }
+//        for (Component component : catPharmacy) {
+//            System.out.println(component);
+//        }
     }
 }

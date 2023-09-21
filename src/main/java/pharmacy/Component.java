@@ -11,13 +11,24 @@ public class Component {
         this.weight = weight;
     }
 
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
     public void setWeight(String weight) {
         this.weight = weight;
     }
 
 
 
-    public int getPower() {
+    public Integer getPower() {
         return power;
     }
 
