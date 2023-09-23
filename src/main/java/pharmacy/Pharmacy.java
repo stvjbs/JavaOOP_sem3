@@ -3,19 +3,22 @@ package pharmacy;
 import java.util.*;
 
 public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy> {
+    public String name;
     private List<Component> components;
-    int index = 0;
+    private int index;
+
     public List<Component> getComponents() {
         return components;
     }
 
-    public void setComponents(List<Component> components) {
-        this.components = components;
+    public String getNameOfFarmacy() {
+        return name;
     }
 
-    public Pharmacy() {
-        this.components = new ArrayList<>();
-        index = 0;
+    public Pharmacy(String name) {
+        this.components = new ArrayList<>(); // инъекция - отложенная инициализация
+        this.index = 0;
+        this.name = name;
     }
 
     public Pharmacy addComponent(Component component) {
@@ -29,26 +32,39 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy> {
         for (Component component : components) {
             count += component.getPower();
         }
-//      int count = components.stream().mapToInt(Component::getPower).sum();
         return count;
     }
-
-//    @Override
-//    public boolean hasNext() {
-//        return index < components.size();
-//    }
-//
-//    @Override
-//    public Component next() {
-//        return components.get(index++);
-//    }
 
     @Override
     public String toString() {
         return "Pharmacy{" +
-                "components=" + components +
+                "name='" + name + '\'' +
+                ", components=" + components +
                 '}';
     }
+
+    @Override
+    public Iterator<Component> iterator() {
+        return new PharmacyIterator(components);
+    }
+
+    @Override
+    public int compareTo(Pharmacy o) {
+        int fullPower = getFullPower();
+        if (this.getFullPower() > o.getFullPower()) {
+            return 1;
+        }
+        if (this.getFullPower() < o.getFullPower()) {
+            return -1;
+        }
+        if (this.getNameOfFarmacy().hashCode() > o.getNameOfFarmacy().hashCode()) {
+            return 1;
+        }
+        if (this.getNameOfFarmacy().hashCode() < o.getNameOfFarmacy().hashCode()) {
+            return -1;
+        } else return 0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,48 +77,6 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy> {
     public int hashCode() {
         return Objects.hash(components);
     }
-
-//    @Override
-//    public Iterator<Component> iterator() {
-//        return new PharmacyIterator();
-//    }
-
-    @Override
-    public int compareTo(Pharmacy o) {
-        int fullPower = getFullPower();
-        if (this.getFullPower() > o.getFullPower()) {
-            return 1;
-        }
-        if (this.getFullPower() < o.getFullPower()) {
-            return -1;
-        }
-        if (this.components.getClass().hashCode() > o.components.getClass().hashCode()){
-            return 1;}
-        if (this.components.getClass().hashCode() < o.components.getClass().hashCode()){
-                return -1;}
-        else return 0;
-
-    }
-
-    @Override
-    public Iterator<Component> iterator() {
-
-        return new Iterator<Component>() {
-            @Override
-            public boolean hasNext() {
-                return index < components.size();
-            }
-
-            @Override
-            public Component next() {
-                return components.get(index++);
-            }
-        };
-    }
-
-//    for (Iterator<Component> iterator = pharmacy.iterator(); iterator.hasNext();) {
-//        Component c = iterator.next();
-//    }
-
 }
+
 
